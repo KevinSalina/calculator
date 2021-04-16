@@ -18,19 +18,27 @@ display.textContent = 0
 
 // Basic Math Functions
 function add(a,b){
-    return Math.round((a + b) * 100) / 100
+    // return Math.round((a + b) * 100) / 100
+    return +(a + b).toFixed(5)
 }
 
 function subtract(a,b){
-    return Math.round((a - b) * 100) / 100
+    // return Math.round((a - b) * 100) / 100
+    return +(a - b).toFixed(5)
 }
 
 function multiply(a,b){
-    return Math.round((a * b) * 100) / 100
+    // return Math.round((a * b) * 100) / 100
+    return +(a * b).toFixed(5)
 }
 
 function divide(a,b){ 
-    return Math.round((a / b) *100) / 100
+    // return Math.round((a / b) *100) / 100
+    return +(a / b).toFixed(5)
+}
+
+function exponentialRounding(num, places) {
+    return Number.parseFloat(num).toExponential(places)
 }
 
 // Main Operate Function - takes in 2 numbers and calls an operation on them
@@ -80,7 +88,7 @@ function handleOperatorBtn(){
     if(firstOperand === null && secondOperand === null && currentOperator === null){
     firstOperand = Number(currentInput);
     }
-    else if((firstOperand != null && firstOperand != currentCalcResult) && currentOperator != null){
+    else if((firstOperand != null && firstOperand != currentCalcResult) && currentOperator != null && currentInput.length > 0){
         console.log(`(from handleOperatorBtn() 1st else if) Before Calculation: currentCalcResult = ${currentCalcResult}. firstOperand = ${firstOperand}. secondOperand = ${secondOperand}. currentOperator = ${currentOperator}`)
         performCalculation()
     }
@@ -97,13 +105,16 @@ function handleOperatorBtn(){
 equalsBtn.addEventListener('click', performCalculation)
 
 function performCalculation(){
+    if(firstOperand === null || currentOperator === null) return
     secondOperand = Number(currentInput)
     console.log(`(from performCalculation) Before Calculation: currentCalcResult = ${currentCalcResult}. firstOperand = ${firstOperand}. secondOperand = ${secondOperand}. currentOperator = ${currentOperator}`)
     currentCalcResult = operate(firstOperand, secondOperand, currentOperator)
     display.textContent = currentCalcResult
+    if(currentCalcResult.toString().length > 10){
+        display.textContent = exponentialRounding(currentCalcResult, 5)
+    }
     firstOperand = currentCalcResult
     secondOperand = null;
-    // currentOperator = null;
     currentInput = '';
     console.log(`(from performCalculation) After Calculation: currentCalcResult = ${currentCalcResult}. firstOperand = ${firstOperand}. secondOperand = ${secondOperand}. currentOperator = ${currentOperator}`)
 }
