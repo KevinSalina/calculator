@@ -91,16 +91,13 @@ function handleOperatorBtn(){
     firstOperand = Number(currentInput);
     }
     else if((firstOperand != null && firstOperand != currentCalcResult) && currentOperator != null && currentInput.length > 0){
-        console.log(`(from handleOperatorBtn() 1st else if) Before Calculation: currentCalcResult = ${currentCalcResult}. firstOperand = ${firstOperand}. secondOperand = ${secondOperand}. currentOperator = ${currentOperator}`)
         performCalculation()
     }
     else if(firstOperand === currentCalcResult && currentInput.length > 0){
-        console.log(`(from handleOperatorBtn() 2nd else if) Before Calculation: currentCalcResult = ${currentCalcResult}. firstOperand = ${firstOperand}. secondOperand = ${secondOperand}. currentOperator = ${currentOperator}`)
         performCalculation()
     }
     currentOperator = this.value
     currentInput = '';
-    console.log(firstOperand, currentInput, currentOperator)
 }
 
 // Equals Event Listener
@@ -113,7 +110,6 @@ function performCalculation(){
         return reset()
     }
     secondOperand = Number(currentInput)
-    console.log(`(from performCalculation) Before Calculation: currentCalcResult = ${currentCalcResult}. firstOperand = ${firstOperand}. secondOperand = ${secondOperand}. currentOperator = ${currentOperator}`)
     currentCalcResult = operate(firstOperand, secondOperand, currentOperator)
     display.textContent = currentCalcResult
     if(currentCalcResult.toString().length > 10){
@@ -122,7 +118,6 @@ function performCalculation(){
     firstOperand = currentCalcResult
     secondOperand = null;
     currentInput = '';
-    console.log(`(from performCalculation) After Calculation: currentCalcResult = ${currentCalcResult}. firstOperand = ${firstOperand}. secondOperand = ${secondOperand}. currentOperator = ${currentOperator}`)
 }
 
 
