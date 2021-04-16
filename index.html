@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
     <title>Calculator</title>
 </head>
 
@@ -16,32 +18,44 @@
             <div class="calculator display row">0</div>
             <div class="calculator btns row">
                 <button class="btn clear" value="clear">AC</button>
+                <button class="btn trash" value="trash">
+                    <ion-icon name="trash-outline"></ion-icon>
+                </button>
                 <button class="btn sign" value="sign">+/-</button>
-                <button class="btn percentage" value="percentage">%</button>
-                <button class="btn operator" value="divide">/</button>
+                <button class="btn operator" value="divide">
+                    <ion-icon name="remove" class="divide"></ion-icon>
+                </button>
             </div>
             <div class="calculator btns row">
                 <button class="btn operand" value="7">7</button>
                 <button class="btn operand" value="8">8</button>
                 <button class="btn operand" value="9">9</button>
-                <button class="btn operator" value="multiply">*</button>
+                <button class="btn operator" value="multiply">
+                    <ion-icon name="close"></ion-icon>
+                </button>
             </div>
             <div class="calculator btns row">
                 <button class="btn operand" value="4">4</button>
                 <button class="btn operand" value="5">5</button>
                 <button class="btn operand" value="6">6</button>
-                <button class="btn operator" value="subtract">-</button>
+                <button class="btn operator" value="subtract">
+                    <ion-icon name="remove"></ion-icon>
+                </button>
             </div>
             <div class="calculator btns row">
                 <button class="btn operand" value="1">1</button>
                 <button class="btn operand" value="2">2</button>
                 <button class="btn operand" value="3">3</button>
-                <button class="btn operator" value="add">+</button>
+                <button class="btn operator" value="add">
+                    <ion-icon name="add"></ion-icon>
+                </button>
             </div>
             <div class="calculator btns row">
                 <button class="btn operand" value="0">0</button>
                 <button class="btn operand" value=".">.</button>
-                <button class="btn equals" value="equals">=</button>
+                <button class="btn equals" value="equals">
+                    <ion-icon name="reorder-two-outline"></ion-icon>
+                </button>
             </div>
         </div>
     </main>

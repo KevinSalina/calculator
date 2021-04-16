@@ -4,6 +4,8 @@ const operatorBtns = document.querySelectorAll('.operator')
 const operandBtns = document.querySelectorAll('.operand')
 const equalsBtn = document.querySelector('.equals')
 const clearBtn = document.querySelector('.clear')
+const signBtn = document.querySelector('.sign')
+const trashBtn = document.querySelector('.trash')
 
 // Variables
 let firstOperand = null;
@@ -106,6 +108,10 @@ equalsBtn.addEventListener('click', performCalculation)
 
 function performCalculation(){
     if(firstOperand === null || currentOperator === null) return
+    if(currentInput === '0' && currentOperator === 'divide'){
+        display.textContent = 'lol nice try'
+        return reset()
+    }
     secondOperand = Number(currentInput)
     console.log(`(from performCalculation) Before Calculation: currentCalcResult = ${currentCalcResult}. firstOperand = ${firstOperand}. secondOperand = ${secondOperand}. currentOperator = ${currentOperator}`)
     currentCalcResult = operate(firstOperand, secondOperand, currentOperator)
@@ -121,10 +127,32 @@ function performCalculation(){
 
 
 clearBtn.addEventListener('click', ()=>{
+    reset()
+    display.textContent = 0
+})
+
+signBtn.addEventListener('click', ()=>{
+    if(currentCalcResult){
+        firstOperand = (firstOperand * -1)
+        display.textContent = firstOperand
+    } else{
+    currentInput = (currentInput * -1).toString()
+    display.textContent = currentInput
+    }
+})
+
+trashBtn.addEventListener('click', ()=>{
+    if(currentInput.length > 0){
+        currentInput = currentInput.slice(0, -1)
+        display.textContent = currentInput
+    }
+})
+
+function reset(){
     firstOperand = null;
     secondOperand = null;
     currentOperator = null;
     currentCalcResult = null;
     currentInput = '';
-    display.textContent = 0
-})
+}
+

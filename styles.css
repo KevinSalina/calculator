@@ -12,6 +12,7 @@
 
 html{
     font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif
 
 }
 
@@ -62,8 +63,12 @@ body{
     border: none;
     border-radius: 5px;
     font-size: 1.1rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     cursor: pointer;
+}
+
+.btn.operand{
+    font-weight: bold;
 }
 
 .btn[value="0"]{
@@ -71,20 +76,20 @@ body{
 }
 
 
-.clear,.sign, .percentage{
+.clear,.sign, .trash{
     background: var(--btn-color1);
     color: white;
 }
 
-.clear:hover,.sign:hover, .percentage:hover{
+.clear:hover,.sign:hover, .trash:hover{
     background: #376481;
 }
 
-.operator{
+.operator, .equals{
     background: var(--btn-color2);
     color: white;
 }
-.operator:hover{
+.operator:hover, .equals:hover{
     background: #EF4C4F;
 }
 
@@ -93,4 +98,9 @@ body{
 }
 .operand:hover{
     background: #F8F9FF;
+    border: 2px solid gray;
+}
+
+ion-icon.divide{
+    transform: translateY(10%) rotate(-65deg);
 }
