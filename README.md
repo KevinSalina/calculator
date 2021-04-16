@@ -3,7 +3,7 @@
 Project to create a **Calculator** using only HTML, CSS and JS.
 Project will follow basic Git workflow.
 
-🔗 **Live preview:** [here](#)
+🔗 **Live preview:** [here](https://kevinsalina.github.io/calculator/)
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/calculator).
 
